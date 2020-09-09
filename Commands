@@ -1,0 +1,17 @@
+ /usr/share/X11/xorg.conf.d/40-libinput.conf
+
+Section "InputClass"
+#        Identifier "libinput touchpad catchall"
+        Identifier "appletouch"
+        MatchIsTouchpad "on"
+        MatchDevicePath "/dev/input/event*"
+        Driver "libinput"
+        Option "Tapping" "True"
+EndSection
+
+xinput --list
+xinput --list-props 10
+xinput set-prop 10 289 1
+
+b43-fwcutter 
+firmware-b43-installer
